@@ -8,8 +8,8 @@
 		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.security</groupId>
-	<artifactId>login</artifactId>
+	<groupId>com.barbearia</groupId>
+	<artifactId>API</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>login</name>
 	<description>Demo project for Spring Boot</description>

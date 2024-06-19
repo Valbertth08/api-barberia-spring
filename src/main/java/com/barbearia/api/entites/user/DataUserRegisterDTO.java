@@ -1,15 +1,14 @@
-package com.security.login.entites.dto;
+package com.barbearia.api.entites.user;
 
-import com.security.login.entites.Enum.UserRole;
+import com.barbearia.api.entites.user.enums.UserRole;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record InserirDto(
-
+public record DataUserRegisterDTO(
         @NotBlank
         String login,
         @NotBlank
-        String senha,
+        String password,
         @NotNull
         UserRole role
 ) {

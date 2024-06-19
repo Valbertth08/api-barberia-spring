@@ -1,10 +1,10 @@
-package com.security.login.entites.dto;
+package com.barbearia.api.entites.user;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record LoginDto(
+public record DataUserLoginDTO(
         @NotBlank
         String login,
         @NotBlank
-        String senha) {
+        String password) {
 }

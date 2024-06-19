@@ -1,4 +1,4 @@
-package com.security.login;
+package com.barbearia.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

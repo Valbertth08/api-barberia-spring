@@ -1,7 +1,8 @@
-package com.security.login.security;
+package com.barbearia.api.infra.security;
 
 
-import com.security.login.repository.UsuarioRepository;
+import com.barbearia.api.repository.UserRepository;
+import com.barbearia.api.service.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,13 +17,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
 @Component
-public class SecurityFIlter extends OncePerRequestFilter {
+public class SecurityFilter extends OncePerRequestFilter {
 
     @Autowired
     private TokenService tokenService;
 
     @Autowired
-    private UsuarioRepository repository;
+    private UserRepository repository;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token= this.pegarHeader(request);
@@ -32,10 +33,8 @@ public class SecurityFIlter extends OncePerRequestFilter {
             var authentication= new UsernamePasswordAuthenticationToken(user,null,user.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-
         filterChain.doFilter(request,response);
     }
-
     private String pegarHeader(HttpServletRequest request){
         var authHeader=request.getHeader("Authorization");
         if(authHeader==null){

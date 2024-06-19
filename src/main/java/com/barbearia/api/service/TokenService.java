@@ -1,12 +1,11 @@
-package com.security.login.security;
+package com.barbearia.api.service;
 
 
 import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.security.login.entites.Usuario;
+import com.barbearia.api.entites.user.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +17,13 @@ import java.time.ZoneOffset;
 public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
-    public String gerarToken(Usuario usuario){
+    public String gerarToken(User usuario){
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             String token = JWT.create()
-                    .withIssuer("api teste")
+                    .withIssuer("api-security-barbearia")
                     .withSubject(usuario.getLogin())
-                    .withExpiresAt(tempo())
+                    .withExpiresAt(time())
                     .sign(algorithm);
             return  token;
         } catch (JWTCreationException exception){
@@ -35,7 +34,7 @@ public class TokenService {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.require(algorithm)
-                    .withIssuer("api teste")
+                    .withIssuer("api-security-barbearia")
                     .build()
                     .verify(token)
                     .getSubject();
@@ -43,7 +42,7 @@ public class TokenService {
             return "";
         }
     }
-    private Instant tempo(){
+    private Instant time(){
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
 
