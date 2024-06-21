@@ -3,7 +3,7 @@ package com.barbearia.api.controller;
 
 import com.barbearia.api.entites.user.*;
 import com.barbearia.api.repository.UserRepository;
-import com.barbearia.api.service.TokenService;
+import com.barbearia.api.infra.security.services.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

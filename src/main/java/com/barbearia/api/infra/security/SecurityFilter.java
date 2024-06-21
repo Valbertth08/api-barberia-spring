@@ -2,7 +2,7 @@ package com.barbearia.api.infra.security;
 
 
 import com.barbearia.api.repository.UserRepository;
-import com.barbearia.api.service.TokenService;
+import com.barbearia.api.infra.security.services.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

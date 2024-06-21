@@ -25,8 +25,9 @@ public class SpringSecurity {
         return http.csrf(crfs->crfs.disable()).sessionManagement(sm->sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth->auth
                                 .requestMatchers(HttpMethod.POST,"/auth/login").permitAll()
-                                .requestMatchers(HttpMethod.GET,"/auth/list").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.POST,"/auth/register").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.GET,"/auth/list").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/auth/register").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/client/register").permitAll()
                                 .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class).build();
     }
