@@ -2,7 +2,6 @@ package com.barbearia.api.entites.employee.enums;
 
 public enum Specialty {
     BARBER("barber");
-
     private String Specialty;
     Specialty(String function){
         this.Specialty=function;
@@ -10,4 +9,5 @@ public enum Specialty {
     public String getFunction() {
         return Specialty;
     }
+
 }

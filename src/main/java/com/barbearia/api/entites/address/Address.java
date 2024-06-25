@@ -24,4 +24,11 @@ public class Address {
     private String complement;
     @NotBlank
     private String city;
+    public Address(DataAdressDTO adress) {
+        this.neighborhood= adress.neighborhood();
+        this.cep=adress.cep();
+        this.city=adress.city();
+        this.number=adress.number();
+        this.complement= adress.complement();
+    }
 }

@@ -7,14 +7,18 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name = "tb_client")
+@NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "user_id")
 public class Client extends User {
     private Long telephone;
     public Client(Long telephone) {
+
         this.telephone = telephone;
     }
     public Client(String login, String password, UserRole role, Long telephone) {

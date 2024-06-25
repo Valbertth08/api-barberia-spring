@@ -28,6 +28,7 @@ public class SpringSecurity {
                                 .requestMatchers(HttpMethod.GET,"/auth/list").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/auth/register").permitAll()
                                 .requestMatchers(HttpMethod.POST,"/client/register").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/employee/register").permitAll()
                                 .anyRequest().authenticated())
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class).build();
     }
